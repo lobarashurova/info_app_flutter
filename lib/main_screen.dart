@@ -72,23 +72,24 @@ class _MainScreenState extends State<MainScreen> {
                     style: const TextStyle(color: Colors.white),
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
-                        fillColor: Color(0xFF263238),
+                        fillColor: Colors.blueGrey.shade900,
+                        filled: true,
                         hintText: "Navoi",
-                        // icon: const Icon(Icons.search),
-                        // iconColor: Colors.white,
                         suffixIcon: const Icon(Icons.search),
                         suffixIconColor: Colors.white,
-                        errorText: editor ? "error" : "",
-                        errorBorder: const OutlineInputBorder(),
-                        hintStyle: const TextStyle(color: Colors.white),
+                        hintStyle: TextStyle(color: Colors.grey.shade500),
                         focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide.none,
                             borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
+                                BorderRadius.all(Radius.circular(7))),
+                        disabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(7))),
                         enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide.none,
                             borderRadius:
-                                BorderRadius.all(Radius.circular(15)))),
+                                BorderRadius.all(Radius.circular(7)))),
                   ),
                 ),
                 Container(
@@ -99,13 +100,13 @@ class _MainScreenState extends State<MainScreen> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             child: Container(
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
-                                  border: Border.all(
-                                      width: 1.5, color: Colors.white),
+                                  // border: Border.all(
+                                  //     width: 1.5, color: Colors.white),
                                   color: Color(0xFF263238)),
                               child: Stack(
                                 children: [
@@ -131,7 +132,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(15),
+                  margin: const EdgeInsets.all(15),
                   child: const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -146,8 +147,43 @@ class _MainScreenState extends State<MainScreen> {
                         itemCount: list.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
+                          final currentOne = list[index];
                           return Padding(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailScreen(
+                                        regionData: list[index],
+                                      )),
+                                );
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: SizedBox(
+                                    height: MediaQuery.sizeOf(context).height*0.1,
+                                    width: MediaQuery.sizeOf(context).width*0.4,
+                                    child: Stack(
+                                      children: [
+                                        Positioned(
+                                            top: 0,
+                                            bottom: 0,
+                                            right: 0,
+                                            left: 0,
+                                            child: Image.asset(currentOne.regionImage,fit: BoxFit.cover,)),
+                                        Positioned(
+                                            bottom: 10,
+                                            left: 10,
+                                            child: Text(currentOne.regionName,style: const TextStyle(color: Colors.white),)),
+                                      ],
+                                    ),),
+                              ),
+                            ),
+                          );
+                          return Padding(
+                            padding: const EdgeInsets.all(10),
                             child: InkWell(
                               onTap: () {
                                 Navigator.push(
@@ -163,7 +199,7 @@ class _MainScreenState extends State<MainScreen> {
                                 width: 130,
                                 decoration: BoxDecoration(
                                     borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
+                                        const BorderRadius.all(Radius.circular(10)),
                                     border: Border.all(
                                         width: 1.5, color: Colors.white)),
                                 child: Stack(
@@ -174,7 +210,7 @@ class _MainScreenState extends State<MainScreen> {
                                         list[index].regionImage,
                                         width: 130,
                                         height: 220,
-                                        fit: BoxFit.fitHeight,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     Align(
@@ -195,7 +231,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(15),
+                  margin: const EdgeInsets.all(15),
                   child: const Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -210,7 +246,7 @@ class _MainScreenState extends State<MainScreen> {
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             child: InkWell(
                               onTap: (){
                                 Navigator.push(
@@ -225,10 +261,10 @@ class _MainScreenState extends State<MainScreen> {
                                 width: 130,
                                 decoration: BoxDecoration(
                                     borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
+                                        const BorderRadius.all(Radius.circular(10)),
                                     border: Border.all(
                                         width: 1.5, color: Colors.white),
-                                    color: Color(0xFF263238)),
+                                    color: const Color(0xFF263238)),
                                 child: Stack(
                                   children: [
                                     Align(
