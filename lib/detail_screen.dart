@@ -18,25 +18,33 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: const BoxDecoration(color: Color(0xFF031F2A)),
-      child: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: MediaQuery.sizeOf(context).height*0.5,
-            child: Stack(
-              children: [
-                  Image.asset(
-                    regionData.regionImage,
-                  ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ));
+          backgroundColor: Color(0xFF031F2A),
+          body: SafeArea(
+            child: Column(
+            children: [
+              Container(
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height*0.45,
+                child: Stack(
+                  children: [
+                      Positioned(
+                        top: 0,
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            regionData.regionImage,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+                    ),
+          ));
   }
 }
