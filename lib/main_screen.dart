@@ -10,37 +10,114 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  List<RegionData> filteredList = [];
+  List<RegionData> list = [];
+
   @override
   Widget build(BuildContext context) {
     List<RegionData> list = [];
-    list.add(RegionData(
-        regionName: "Buxoro",
-        regionImage: 'assets/finlandiya1.jpg',
-        regionDetail:
-            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor."));
+
+    list.add(
+      RegionData(
+          regionName: "Buxoro",
+          regionImage: 'assets/finlandiya1.jpg',
+          regionDetail:
+              "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+          type: "Tog'"),
+    );
     list.add(RegionData(
         regionName: "Navoi",
         regionImage: 'assets/finlandiya2.jpg',
         regionDetail:
-            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor."));
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Tog'"));
     list.add(RegionData(
         regionName: "Toshkent",
         regionImage: 'assets/fransiya2.jpeg',
         regionDetail:
-            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor."));
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Tog'"));
     list.add(RegionData(
         regionName: "Samarqand",
         regionImage: 'assets/germaniya1.jpg',
         regionDetail:
-            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor."));
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Tog'"));
     list.add(RegionData(
         regionName: "Farg'ona",
         regionImage: 'assets/fransiya1.jpeg',
         regionDetail:
-            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor."));
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Tog'"));
+    list.add(
+      RegionData(
+          regionName: "Buxoro",
+          regionImage: 'assets/finlandiya1.jpg',
+          regionDetail:
+              "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+          type: "Tog'"),
+    );
+    list.add(RegionData(
+        regionName: "Navoi",
+        regionImage: 'assets/irlandiya1.jpg',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Dacha"));
+    list.add(RegionData(
+        regionName: "Toshkent",
+        regionImage: 'assets/irlandiya2.jpg',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Dacha"));
+    list.add(RegionData(
+        regionName: "Samarqand",
+        regionImage: 'assets/islandiya1.png',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Dacha"));
+    list.add(RegionData(
+        regionName: "Farg'ona",
+        regionImage: 'assets/islandiya2.jpg',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Dacha"));
+    list.add(
+      RegionData(
+          regionName: "Buxoro",
+          regionImage: 'assets/italiya1.jpg',
+          regionDetail:
+              "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+          type: "Shahar"),
+    );
+    list.add(RegionData(
+        regionName: "Navoi",
+        regionImage: 'assets/italiya2.jpg',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Shahar"));
+    list.add(RegionData(
+        regionName: "Toshkent",
+        regionImage: 'assets/fransiya2.jpeg',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Tog'"));
+    list.add(RegionData(
+        regionName: "Samarqand",
+        regionImage: 'assets/germaniya1.jpg',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Tog'"));
+    list.add(RegionData(
+        regionName: "Farg'ona",
+        regionImage: 'assets/fransiya1.jpeg',
+        regionDetail:
+            "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor.",
+        type: "Shahar"));
+
     List<String> listContents = ["Barchasi", "Tog'", "Dacha", "Shahar"];
     final controller = TextEditingController();
     var editor = false;
+    filterRegions(controller.text);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -68,8 +145,11 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 15, right: 15, top: 25),
-                  child: TextFormField(
+                  child: TextField(
                     controller: controller,
+                    // onChanged: (value) {
+                    //   filterRegions(value);
+                    // },
                     style: const TextStyle(color: Colors.white),
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
@@ -81,12 +161,10 @@ class _MainScreenState extends State<MainScreen> {
                         hintStyle: TextStyle(color: Colors.grey.shade500),
                         focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide.none,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(7))),
+                            borderRadius: BorderRadius.all(Radius.circular(7))),
                         disabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide.none,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(7))),
+                            borderRadius: BorderRadius.all(Radius.circular(7))),
                         enabledBorder: const UnderlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius:
@@ -145,7 +223,7 @@ class _MainScreenState extends State<MainScreen> {
                   height: 220,
                   child: Expanded(
                     child: ListView.builder(
-                        itemCount: list.length,
+                        itemCount: 5,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           final currentOne = list[index];
@@ -157,29 +235,53 @@ class _MainScreenState extends State<MainScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => DetailScreen(
-                                        regionData: list[index],
-                                      )),
+                                            regionData: list[index],
+                                          )),
                                 );
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: SizedBox(
-                                    height: MediaQuery.sizeOf(context).height*0.1,
-                                    width: MediaQuery.sizeOf(context).width*0.4,
-                                    child: Stack(
-                                      children: [
-                                        Positioned(
-                                            top: 0,
-                                            bottom: 0,
-                                            right: 0,
-                                            left: 0,
-                                            child: Image.asset(currentOne.regionImage,fit: BoxFit.cover,)),
-                                        Positioned(
-                                            bottom: 10,
-                                            left: 10,
-                                            child: Text(currentOne.regionName,style: const TextStyle(color: Colors.white),)),
-                                      ],
-                                    ),),
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.1,
+                                  width: MediaQuery.sizeOf(context).width * 0.4,
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                          top: 0,
+                                          bottom: 0,
+                                          right: 0,
+                                          left: 0,
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                              gradient: LinearGradient(
+                                                  colors: [
+                                                    Colors.black,
+                                                    Colors.transparent
+                                                  ],
+                                                  begin: FractionalOffset(
+                                                      0.0, 0.5),
+                                                  end: FractionalOffset(
+                                                      0.5, 1.0),
+                                                  stops: [0.0, 2.0],
+                                                  tileMode: TileMode.decal),
+                                            ),
+                                            child: Image.asset(
+                                              currentOne.regionImage,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          )),
+                                      Positioned(
+                                          bottom: 10,
+                                          left: 10,
+                                          child: Text(
+                                            currentOne.regionName,
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          )),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           );
@@ -198,7 +300,7 @@ class _MainScreenState extends State<MainScreen> {
                 Container(
                   child: Expanded(
                     child: ListView.builder(
-                        itemCount: list.length,
+                        itemCount: filteredList.length,
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
                           return Padding(
@@ -209,14 +311,15 @@ class _MainScreenState extends State<MainScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => DetailScreen(
-                                        regionData: list[index],
-                                      )),
+                                            regionData: list[index],
+                                          )),
                                 );
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: SizedBox(
-                                  height: MediaQuery.sizeOf(context).height*0.25,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.25,
                                   width: double.infinity,
                                   child: Stack(
                                     children: [
@@ -225,17 +328,39 @@ class _MainScreenState extends State<MainScreen> {
                                           bottom: 0,
                                           right: 0,
                                           left: 0,
-                                          child: Image.asset(list[index].regionImage,fit: BoxFit.cover,)),
+                                          child: Container(
+                                            decoration: const BoxDecoration(
+                                              gradient: LinearGradient(
+                                                  colors: [
+                                                    Colors.black,
+                                                    Colors.transparent
+                                                  ],
+                                                  begin: FractionalOffset(
+                                                      0.0, 0.5),
+                                                  end: FractionalOffset(
+                                                      0.5, 1.0),
+                                                  stops: [0.0, 2.0],
+                                                  tileMode: TileMode.decal),
+                                            ),
+                                            child: Image.asset(
+                                              filteredList[index].regionImage,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          )),
                                       Positioned(
                                           bottom: 10,
                                           left: 10,
-                                          child: Text(list[index].regionName,style: const TextStyle(color: Colors.white),)),
+                                          child: Text(
+                                            filteredList[index].regionName,
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          )),
                                     ],
-                                  ),),
+                                  ),
+                                ),
                               ),
                             ),
                           );
-
                         }),
                   ),
                 )
@@ -245,5 +370,19 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
     );
+  }
+
+  void filterRegions(String query) {
+    setState(() {
+      if (query == "") {
+        filteredList = list;
+      } else {
+        filteredList = list
+            .where((region) =>
+                region.regionName.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+      print(filteredList);
+    });
   }
 }

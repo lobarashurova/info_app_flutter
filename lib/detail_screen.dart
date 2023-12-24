@@ -57,21 +57,21 @@ class _DetailScreenState extends State<DetailScreen> {
                               tileMode: TileMode.decal),
                         ),
                       )),
-                  const Positioned(
+                  Positioned(
                       bottom: 25,
                       left: 15,
                       child: Column(
                         children: [
                           Text(
-                            "Zomin",
-                            style: TextStyle(
+                            regionData.regionName,
+                            style: const TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
                           Text(
-                            "Tog'",
-                            style: TextStyle(
+                            regionData.type,
+                            style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.normal,
                                 color: Colors.white),
@@ -96,6 +96,25 @@ class _DetailScreenState extends State<DetailScreen> {
                       ],
                     ),
                   ),
+                  Positioned(
+                      top: 55,
+                      left: 15,
+                      child: Container(
+                        width: 45,
+                        height: 45,
+                        decoration: const BoxDecoration(
+                            color: Color(0xFFE5E5E5),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Image.asset(
+                              'assets/back.png',
+                              color: Colors.black,
+                            )),
+                      ))
                 ],
               ),
             ),
@@ -112,13 +131,14 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
             Container(
               width: MediaQuery.sizeOf(context).width,
-              margin: EdgeInsets.only(left: 15, top: 15),
-              child:  Text(
+              margin: EdgeInsets.only(left: 15, top: 15, right: 15),
+              child: Text(
                 regionData.regionDetail,
                 style: const TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 20,
-                ),
+                    fontWeight: FontWeight.normal,
+                    fontSize: 20,
+                    color: Colors.white),
+                textAlign: TextAlign.justify,
               ),
             )
           ],

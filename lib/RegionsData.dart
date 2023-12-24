@@ -2,11 +2,14 @@ class RegionData {
   String regionName;
   String regionDetail;
   String regionImage;
+  String type;
 
-  RegionData(
-      {required this.regionName,
-      required this.regionImage,
-      required this.regionDetail});
+  RegionData({
+    required this.regionName,
+    required this.regionImage,
+    required this.regionDetail,
+    required this.type,
+  });
 
   @override
   bool operator ==(Object other) {
@@ -14,10 +17,14 @@ class RegionData {
     return other is RegionData &&
         other.regionImage == regionImage &&
         other.regionName == regionName &&
-        other.regionDetail == regionDetail;
+        other.regionDetail == regionDetail &&
+        other.type == type;
   }
 
   @override
   int get hashCode =>
-      regionImage.hashCode ^ regionImage.hashCode ^ regionDetail.hashCode;
+      regionImage.hashCode ^
+      regionImage.hashCode ^
+      regionDetail.hashCode ^
+      type.hashCode;
 }
