@@ -9,10 +9,12 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
+var controller = TextEditingController();
+List<RegionData> list = [];
+
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    List<RegionData> list = [];
     list.add(RegionData(
         regionName: "Buxoro",
         regionImage: 'assets/finlandiya1.jpg',
@@ -39,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
         regionDetail:
             "\tGFR — federativ respublika. Amaldagi konstitutsiyasi 1949-yil 23-mayda qabul qilingan, unga 1954, 1956, 1990, 1993 va 1994-yillarda qoʻshimchalar kiritilgan. \tDavlat boshligʻi — federal prezident. U maxsus chaqiriladigan federal majlis tomonidan 5 yil muddatga saylanadi va yana faqat bir marta saylanishi mumkin. Federal majlis bundestag raisi tomonidan chaqiriladi va u bundestag deputatlari hamda landtaglar (yer parlamentlari) tomonidan saylangan aʼzolardan iborat. Prezident ish qobiliyatini yoʻqotsa yoki vafot etsa, bundesrat raisi prezident vakolatlarini bajaradi. Qonun chiqaruvchi hokimiyatni parlament amalga oshiradi. U ikki palata: bundestag va bundesratdan iborat. Bundestag aholi tomonidan 4 yil muddatga saylanadi. Bundesrat esa yer hukumatlari oʻz orasidan 4 yil muddatga tayinlaydigan vakillardan iborat. Ijroiya hokimiyat federal kansler boshchiligidagi federal hukumat qoʻlida. Federal kansler bundestagda prezidentning taklifiga binoan koʻpchilik ovoz bilan saylanadi. Vazirlar federal kanslerning taklifi bilan prezident tomonidan tayinlanadi. Har bir yerning oʻz konstitutsiyasi, parlament va hukumati bor."));
     List<String> listContents = ["Barchasi", "Tog'", "Dacha", "Shahar"];
-    final controller = TextEditingController();
+
     var editor = false;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -70,6 +72,11 @@ class _MainScreenState extends State<MainScreen> {
                   margin: const EdgeInsets.only(left: 15, right: 15, top: 25),
                   child: TextFormField(
                     controller: controller,
+                    onChanged: (text) {
+                      setState(() {
+                        searchByName(text);
+                      });
+                    },
                     style: const TextStyle(color: Colors.white),
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
@@ -198,9 +205,15 @@ class _MainScreenState extends State<MainScreen> {
                 Container(
                   child: Expanded(
                     child: ListView.builder(
-                        itemCount: list.length,
+                        itemCount: controller.text.isNotEmpty
+                            ? searchByName(controller.text).length
+                            : list.length,
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
+
+                          RegionData data =
+                          searchByName(controller.text).elementAt(index);
+
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: InkWell(
@@ -225,11 +238,11 @@ class _MainScreenState extends State<MainScreen> {
                                           bottom: 0,
                                           right: 0,
                                           left: 0,
-                                          child: Image.asset(list[index].regionImage,fit: BoxFit.cover,)),
+                                          child: Image.asset(data.regionImage,fit: BoxFit.cover,)),
                                       Positioned(
                                           bottom: 10,
                                           left: 10,
-                                          child: Text(list[index].regionName,style: const TextStyle(color: Colors.white),)),
+                                          child: Text(data.regionName,style: const TextStyle(color: Colors.white),)),
                                     ],
                                   ),),
                               ),
@@ -247,3 +260,11 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+Iterable<RegionData> searchByName(String text) {
+  String searchTextLower = text.toLowerCase();
+
+  return list
+      .where((data) => data.regionName.toLowerCase().contains(searchTextLower));
+}
+
