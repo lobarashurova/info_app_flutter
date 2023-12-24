@@ -42,6 +42,7 @@ class _MainScreenState extends State<MainScreen> {
     final controller = TextEditingController();
     var editor = false;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -182,51 +183,6 @@ class _MainScreenState extends State<MainScreen> {
                               ),
                             ),
                           );
-                          return Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DetailScreen(
-                                            regionData: list[index],
-                                          )),
-                                );
-                              },
-                              child: Container(
-                                height: 200,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        const BorderRadius.all(Radius.circular(10)),
-                                    border: Border.all(
-                                        width: 1.5, color: Colors.white)),
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Image.asset(
-                                        list[index].regionImage,
-                                        width: 130,
-                                        height: 220,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Text(
-                                        list[index].regionName,
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
                         }),
                   ),
                 ),
@@ -246,50 +202,40 @@ class _MainScreenState extends State<MainScreen> {
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(8.0),
                             child: InkWell(
-                              onTap: (){
+                              onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => DetailScreen(
-                                        regionData: list[index],)),
+                                        regionData: list[index],
+                                      )),
                                 );
                               },
-                              child: Container(
-                                height: 200,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        const BorderRadius.all(Radius.circular(10)),
-                                    border: Border.all(
-                                        width: 1.5, color: Colors.white),
-                                    color: const Color(0xFF263238)),
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Image.asset(
-                                        list[index].regionImage,
-                                        width: double.infinity,
-                                        height: 220,
-                                        fit: BoxFit.fitWidth,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Text(
-                                        list[index].regionName,
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ],
-                                ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: SizedBox(
+                                  height: MediaQuery.sizeOf(context).height*0.25,
+                                  width: double.infinity,
+                                  child: Stack(
+                                    children: [
+                                      Positioned(
+                                          top: 0,
+                                          bottom: 0,
+                                          right: 0,
+                                          left: 0,
+                                          child: Image.asset(list[index].regionImage,fit: BoxFit.cover,)),
+                                      Positioned(
+                                          bottom: 10,
+                                          left: 10,
+                                          child: Text(list[index].regionName,style: const TextStyle(color: Colors.white),)),
+                                    ],
+                                  ),),
                               ),
                             ),
                           );
+
                         }),
                   ),
                 )
